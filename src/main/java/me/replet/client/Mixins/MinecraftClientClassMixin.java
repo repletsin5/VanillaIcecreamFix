@@ -44,7 +44,6 @@ public abstract class MinecraftClientClassMixin extends ReentrantThreadExecutor<
             MinecraftClient.getInstance().inGameHud.getChatHud().clear(true);
             MinecraftClient.getInstance().run();
             crashReportSupplier = null;
-
         }
     }
     @ModifyArg(method = "run()V", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/MinecraftClient;printCrashReport(Lnet/minecraft/util/crash/CrashReport;)V", ordinal = 1))
@@ -66,6 +65,7 @@ public abstract class MinecraftClientClassMixin extends ReentrantThreadExecutor<
         MinecraftClient.getInstance().run();
         return report;
     }
+
     private CrashReport crashReport;
     @Redirect(method = "<init>", require = 0, at = @At(value = "INVOKE", target = "Lnet/fabricmc/loader/impl/game/minecraft/Hooks;startClient(Ljava/io/File;Ljava/lang/Object;)V", remap = false))
     private void catchFabricInit(File runDir, Object gameInstance) {
