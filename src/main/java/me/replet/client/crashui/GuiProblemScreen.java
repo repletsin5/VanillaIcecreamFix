@@ -38,7 +38,7 @@ public class GuiProblemScreen extends Screen {
 
     @Override
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
-        renderBackground(context);
+        renderBackground(context,mouseX,mouseY,delta);
         drawCenteredText(context,textRenderer, Text.literal("You have crashed"), width / 2, height / 4 - 40, 0xFFFFFF);
         super.render(context, mouseX, mouseY, delta);
     }

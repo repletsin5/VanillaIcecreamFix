@@ -2,6 +2,7 @@ package org.dimdev.vanillafix.bugs.mixins.step;
 
 import com.mojang.authlib.GameProfile;
 import net.minecraft.network.encryption.PlayerPublicKey;
+import net.minecraft.network.packet.c2s.common.SyncedClientOptions;
 import org.dimdev.vanillafix.util.annotation.MixinConfigValue;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -35,7 +36,7 @@ public abstract class ServerPlayerEntityMixin extends PlayerEntity {
 	 * to jump (not increasing hunger).
 	 */
 	@Inject(method = "<init>", at = @At("RETURN"))
-	private void afterInit(MinecraftServer server, ServerWorld world, GameProfile profile, CallbackInfo ci) {
+	private void afterInit(MinecraftServer server, ServerWorld world, GameProfile profile, SyncedClientOptions clientOptions, CallbackInfo ci) {
 		this.setStepHeight(0.7F);
 	}
 

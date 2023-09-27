@@ -40,7 +40,8 @@ public abstract class MinecraftClientClassMixin extends ReentrantThreadExecutor<
     void loopInject(CallbackInfo ci){
         if (crashReportSupplier != null) {
             MinecraftClient.getInstance().setScreen(new GuiProblemScreen());
-            MinecraftClient.getInstance().options.debugEnabled = false;
+            if(MinecraftClient.getInstance().getDebugHud().shouldShowDebugHud())
+                MinecraftClient.getInstance().getDebugHud().toggleDebugHud();
             MinecraftClient.getInstance().inGameHud.getChatHud().clear(true);
             MinecraftClient.getInstance().run();
             crashReportSupplier = null;
@@ -50,7 +51,8 @@ public abstract class MinecraftClientClassMixin extends ReentrantThreadExecutor<
     private CrashReport atTheEndOfFirstCatchBeforePrintingCrashReport(CrashReport report) {
 
         MinecraftClient.getInstance().setScreen(new GuiProblemScreen());
-        MinecraftClient.getInstance().options.debugEnabled = false;
+        if(MinecraftClient.getInstance().getDebugHud().shouldShowDebugHud())
+            MinecraftClient.getInstance().getDebugHud().toggleDebugHud();
         MinecraftClient.getInstance().inGameHud.getChatHud().clear(true);
         MinecraftClient.getInstance().run();
         return report;
@@ -60,7 +62,8 @@ public abstract class MinecraftClientClassMixin extends ReentrantThreadExecutor<
 
         // we MUST use the report passed as parameter, because the field one only gets assigned in integrated server crashes.
         MinecraftClient.getInstance().setScreen(new GuiProblemScreen());
-        MinecraftClient.getInstance().options.debugEnabled = false;
+        if(MinecraftClient.getInstance().getDebugHud().shouldShowDebugHud())
+            MinecraftClient.getInstance().getDebugHud().toggleDebugHud();
         MinecraftClient.getInstance().inGameHud.getChatHud().clear(true);
         MinecraftClient.getInstance().run();
         return report;
@@ -126,7 +129,8 @@ public abstract class MinecraftClientClassMixin extends ReentrantThreadExecutor<
             Bootstrap.println("#@?@# Game crashed! Crash report could not be saved. #@?@#");
         }
         MinecraftClient.getInstance().setScreen(new GuiProblemScreen());
-        MinecraftClient.getInstance().options.debugEnabled = false;
+        if(MinecraftClient.getInstance().getDebugHud().shouldShowDebugHud())
+            MinecraftClient.getInstance().getDebugHud().toggleDebugHud();
         MinecraftClient.getInstance().inGameHud.getChatHud().clear(true);
     }
 }
