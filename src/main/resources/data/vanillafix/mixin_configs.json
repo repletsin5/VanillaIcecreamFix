@@ -46,5 +46,13 @@
   "org.dimdev.vanillafix.bugs.mixins.client.MinecraftClientMixin": {
     "category": "clientOnly",
     "value": "splitScreenAndTextureProfiler"
+  },
+  "me.replet.client.other.AnvilLevelMaxMixin": {
+    "category": "clientOnly",
+    "value": "useAnvilMod"
+  },
+  "me.replet.client.other.AnvilScreenHandlerMixin": {
+    "category": "clientOnly",
+    "value": "useAnvilMod"
   }
 }

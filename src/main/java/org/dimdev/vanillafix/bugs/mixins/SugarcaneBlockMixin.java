@@ -28,7 +28,6 @@ import java.util.Iterator;
  * Bugs Fixed:
  * - https://bugs.mojang.com/browse/MC-929
  */
-@MixinConfigValue(category = "bugFixes", value = "underwaterSugarcaneFix")
 @Mixin(SugarCaneBlock.class)
 public abstract class SugarcaneBlockMixin extends Block {
 

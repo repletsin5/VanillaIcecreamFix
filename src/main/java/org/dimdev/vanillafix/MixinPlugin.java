@@ -1,17 +1,18 @@
-package org.dimdev.vanillafix.bugs;
+package org.dimdev.vanillafix;
 
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.dimdev.vanillafix.VanillaFix;
+import com.mojang.logging.LogUtils;
 import org.objectweb.asm.tree.ClassNode;
+import org.slf4j.Logger;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
 
-public class BugFixMixinPlugin implements IMixinConfigPlugin {
+public class MixinPlugin implements IMixinConfigPlugin {
+	private static Logger LOGGER = LogUtils.getLogger();
 	@Override
 	public void onLoad(String mixinPackage) {
 	}
@@ -35,18 +36,31 @@ public class BugFixMixinPlugin implements IMixinConfigPlugin {
 //				LogManager.getLogger("VanillIcecreamFix").error(e);
 //			}
 //		}
-
-		return Optional.ofNullable(VanillaFix.MIXIN_CONFIGS.get(targetClassName)).map(pair -> {
+		for (var b: VanillaFix.MIXIN_CONFIGS.values()){
+			for (var a: VanillaFix.MIXIN_CONFIGS.keySet()){
+				//LOGGER.warn("Hello: {}, {}",a,b.getValue());
+			}
+			// LOGGER.warn("Hello: {}, {}",b.getValue(),b.getCategory());
+		}
+		boolean ret = Optional.ofNullable(VanillaFix.MIXIN_CONFIGS.get(mixinClassName)).map(pair -> {
 			try {
+
 				Object e = VanillaFix.config()
 						.getClass()
 						.getField(pair.getCategory())
 						.get(VanillaFix.config());
 				return e.getClass().getField(pair.getValue()).getBoolean(e);
-			} catch (IllegalAccessException | NoSuchFieldException ignored) {
-				throw new AssertionError();
+			} catch (IllegalAccessException | NoSuchFieldException e) {
+				LOGGER.warn("Can't get value of: \"{}\" defaulting to false",e.getMessage());
+				return false;
 			}
 		}).orElse(Boolean.TRUE);
+		if(!ret)
+			LOGGER.warn("Not applying \"{}\" mixin",mixinClassName);
+		//else
+		//	LOGGER.warn("Applying \"{}\" mixin",mixinClassName);
+
+		return ret;
 	}
 
 	@Override

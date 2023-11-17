@@ -20,6 +20,7 @@
   "text.autoconfig.vanillaicereamfix.option.clientOnly.fastInterdimensionalTeleportation": "Fast Interdimensional Teleportation",
   "text.autoconfig.vanillaicereamfix.option.clientOnly.cullParticles": "Cull particles outside of frustum",
   "text.autoconfig.vanillaicereamfix.option.clientOnly.maxAnvilLevel":"Sets the level of experience for 'Too expensive' to apply'",
+  "text.autoconfig.vanillaicereamfix.option.clientOnly.useAnvilMod": "Full disables the anvil level mixin. Can crash game",
   "text.autoconfig.vanillaicereamfix.option.antiCheat.fixStepHeight": "Fix Step Height",
   "text.autoconfig.vanillaicereamfix.option.antiCheat.noPlayerInvulnerabilityAfterTeleport": "Fix Teleportation Invulnerability",
   "vanillaicreamfix.debug.switch_profiler.help": "F3 + S = Cycle client <-> integrated server profiler"

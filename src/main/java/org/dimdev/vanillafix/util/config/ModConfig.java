@@ -87,6 +87,11 @@ public class ModConfig implements ConfigData {
 		@ConfigEntry.Gui.NoTooltip
 		@Comment("Sets the level for the max Anvil experience level for 'Too expensive' to show'")
 		public int maxAnvilLevel = 40;
+
+		@ConfigEntry.Gui.NoTooltip
+		@ConfigEntry.Gui.RequiresRestart
+		@Comment("Full disables the anvil level mod. Enabling this can crash your game with certain mods")
+		public boolean useAnvilMod = false;
 	}
 
 	public static class AntiCheat {

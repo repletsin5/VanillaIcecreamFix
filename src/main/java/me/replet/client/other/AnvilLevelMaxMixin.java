@@ -11,11 +11,13 @@ import net.minecraft.text.StringVisitable;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import org.dimdev.vanillafix.VanillaFix;
+import org.dimdev.vanillafix.util.annotation.MixinConfigValue;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
 
+@MixinConfigValue(category = "clientOnly", value = "useAnvilMod")
 @Mixin(net.minecraft.client.gui.screen.ingame.AnvilScreen.class)
 public abstract class AnvilLevelMaxMixin extends ForgingScreen<AnvilScreenHandler> {
     public AnvilLevelMaxMixin(AnvilScreenHandler handler, PlayerInventory playerInventory, Text title, Identifier texture) {

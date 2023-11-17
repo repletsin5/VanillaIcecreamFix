@@ -10,6 +10,7 @@ import net.minecraft.screen.*;
 import net.minecraft.text.Text;
 import org.apache.commons.lang3.StringUtils;
 import org.dimdev.vanillafix.VanillaFix;
+import org.dimdev.vanillafix.util.annotation.MixinConfigValue;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -25,14 +26,9 @@ import java.util.Map;
 
 import static net.minecraft.screen.AnvilScreenHandler.getNextCost;
 
+@MixinConfigValue(category = "clientOnly", value = "useAnvilMod")
 @Mixin(AnvilScreenHandler.class)
 public abstract class AnvilScreenHandlerMixin extends ForgingScreenHandler {
-    @Shadow @Final
-    private  Property levelCost;
-    @Shadow
-    int repairItemUsage;
-    @Shadow
-    private String newItemName;
     public AnvilScreenHandlerMixin(@Nullable ScreenHandlerType<?> type, int syncId, PlayerInventory playerInventory, ScreenHandlerContext context) {
         super(type, syncId, playerInventory, context);
     }
