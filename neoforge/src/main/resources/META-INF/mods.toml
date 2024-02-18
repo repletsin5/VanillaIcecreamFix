@@ -1,0 +1,49 @@
+# This is an example mods.toml file. It contains the data relating to the loading mods.
+# There are several mandatory fields (#mandatory), and many more that are optional (#optional).
+# The overall format is standard TOML format, v0.5.0.
+# Note that there are a couple of TOML lists in this file.
+# Find more information on toml format here:  https://github.com/toml-lang/toml
+# The name of the mod loader type to load - for regular FML @Mod mods it should be javafml
+modLoader="javafml" #mandatory
+# A version range to match for said mod loader - for regular FML @Mod it will be the forge version
+loaderVersion="[1,)" #mandatory This is typically bumped every Minecraft version by Forge. See our download page for lists of versions.
+# The license for you mod. This is mandatory metadata and allows for easier comprehension of your redistributive properties.
+# Review your options at https://choosealicense.com/. All rights reserved is the default copyright stance, and is thus the default here.
+license="MIT"
+
+[[mods]] #mandatory
+
+modId="vanillafix" #mandatory
+
+version="${version}" #mandatory
+authors = "repletsin5"
+displayName="Vanilla Icecream Fix" #mandatory
+logoFile="icon.png" #optional
+
+description='''
+
+'''
+[[dependencies.vanillafix]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.20.4,)"
+ordering = "NONE"
+side = "BOTH"
+[[dependencies.vanillafix]]
+mandatory=true #mandatory
+modId = "neoforge"
+type = "required"
+versionRange = "[20.4.77-beta,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[mixins]]
+config = "vanillafix.bugs.mixins.json"
+#[[mixins]]
+#config = "vanillafix.crashui.mixins.json"
+[[mixins]]
+config = "vanillafix.textures.mixins.json"
+[[mixins]]
+config = "vanillafix.other.mixins.json"
+[[mixins]]
+config ="vanillafix.mixins.json"

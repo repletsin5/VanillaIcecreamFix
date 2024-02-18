@@ -1,0 +1,20 @@
+{
+  "package": "org.dimdev.vanillafix.textures.mixins",
+  "required": true,
+  "minVersion": "0.8",
+  "compatibilityLevel": "JAVA_8",
+  "client": [
+    "BakedQuadAccessor",
+    "BlockModelRendererMixin",
+    "BuiltChunkMixin",
+    "ChunkDataMixin",
+    "ChunkInfoAccessor",
+    "EntityRenderDispatcherMixin",
+    "InGameOverlayRendererMixin",
+    "ItemRendererMixin",
+    "SpriteMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

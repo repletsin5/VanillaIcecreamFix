@@ -1,0 +1,11 @@
+{
+  "package": "org.dimdev.vanillafix",
+  "required": true,
+  "minVersion": "0.8",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "neoforge.refmap.json",
+
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

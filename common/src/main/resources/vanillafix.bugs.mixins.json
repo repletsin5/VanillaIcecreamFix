@@ -1,0 +1,25 @@
+{
+  "package": "org.dimdev.vanillafix.bugs.mixins",
+  "required": true,
+  "minVersion": "0.8",
+  "compatibilityLevel": "JAVA_8",
+  "plugin": "org.dimdev.vanillafix.MixinPlugin",
+  "refmap": "VanillaIcecreamFix-common-refmap.json",
+  "mixins": [
+    "CreateBiomeAccessor",
+    "ItemStackMixin",
+    "MinecraftServerMixin",
+    "PhantomSpawnerMixin",
+    "PlayerInventoryMixin",
+    "SugarcaneBlockMixin",
+    "step.ServerPlayerEntityMixin"
+
+  ],
+  "client": [
+    "client.MinecraftClientMixin",
+    "client.ClientPlayNetworkHandlerMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

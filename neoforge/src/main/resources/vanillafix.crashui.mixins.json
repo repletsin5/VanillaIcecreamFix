@@ -1,0 +1,15 @@
+{
+  "package": "me.replet.client.Mixins",
+  "required": true,
+  "minVersion": "0.8",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "VanillaIcecreamFix-neoforge-refmap.json",
+  "mixins": [
+  ],
+  "client": [
+    "MinecraftClientClassMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
