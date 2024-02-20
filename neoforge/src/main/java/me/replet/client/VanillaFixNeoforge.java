@@ -11,4 +11,5 @@ public class VanillaFixNeoforge {
     public VanillaFixNeoforge(){
         ModLoadingContext.get().registerExtensionPoint(ConfigScreenHandler.ConfigScreenFactory.class, () -> new ConfigScreenHandler.ConfigScreenFactory((client, parent) -> AutoConfig.getConfigScreen(ModConfig.class, parent).get()));
     }
+
 }

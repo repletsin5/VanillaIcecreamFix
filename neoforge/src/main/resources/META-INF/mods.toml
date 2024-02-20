@@ -39,11 +39,9 @@ side = "BOTH"
 
 [[mixins]]
 config = "vanillafix.bugs.mixins.json"
-#[[mixins]]
-#config = "vanillafix.crashui.mixins.json"
+[[mixins]]
+config = "vanillafix.crashui.mixins.json"
 [[mixins]]
 config = "vanillafix.textures.mixins.json"
 [[mixins]]
 config = "vanillafix.other.mixins.json"
-[[mixins]]
-config ="vanillafix.mixins.json"
